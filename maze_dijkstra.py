@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-
+import numpy
+import IPython
 
 grid = [[0,0,1,0,0,0],
 		[0,0,1,0,0,0],
@@ -7,8 +8,10 @@ grid = [[0,0,1,0,0,0],
 		[0,0,1,1,1,0],
 		[0,0,0,0,1,0]]
 
+# print (numpy.shape(grid))
+
 init = [0,0]
-goal = [4,4]
+goal = [4,5]
 
 delta = [[-1,0],
 		 [0,-1],
@@ -18,10 +21,12 @@ delta = [[-1,0],
 delta_name = ['^','<','v','>']
 
 cost = 1
-print (cost)
+
+
+# IPython.embed()
 
 def search():
-	# closed = [[0 for row in range(len(grid[0]))] for col in range(len(grid))
+	# closed = [[0 for row in range(len(grid [0]))] for col in range(len(grid))
 	closed = [[0,0,0,0,0,0],
 			  [0,0,0,0,0,0],
 			  [0,0,0,0,0,0],
@@ -38,7 +43,7 @@ def search():
 	# g = 0
 
 	x = 1
-	y = 4
+	y = 5
 	g = 0
 
 	open = [[g,x,y]]
@@ -56,6 +61,7 @@ def search():
 		print ("initial open list:")
 		for i in range(len(open)):
 			print (open[i])
+			print (closed)
 
 
 
@@ -80,7 +86,7 @@ def search():
 				for i in range(len(delta)):
 					x2 = x + delta[i][0]
 					y2 = y + delta[i][1]
-					if x2 >=0 and x2 <5 and y2>=0 and y2 <5:
+					if x2 >=0 and x2 <5 and y2>=0 and y2 <6:
 						if closed[x2][y2] == 0 and grid[x2][y2] == 0:
 							g2 = g + cost
 							open.append([g2,x2,y2])
@@ -89,4 +95,5 @@ def search():
 							closed[x2][y2] = 1
 
 search()
+
 
