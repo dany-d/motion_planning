@@ -43,7 +43,6 @@ if __name__ == "__main__":
     tuckarms(env,robot);
 
 
-    #### YOUR CODE HERE ####
     Target = array([[1,0,0,-.15],
                 [0,1,0,0],
                 [0,0,1,.0499],
@@ -67,9 +66,6 @@ if __name__ == "__main__":
         # time.sleep(1.5)
     waitrobot(robot)
 
-    # 
-
-    #### END OF YOUR CODE ###
 
 
     raw_input("Press enter to exit...")

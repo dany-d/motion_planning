@@ -42,9 +42,6 @@ if __name__ == "__main__":
     # tuck in the PR2's arms for driving
     tuckarms(env,robot);
 
-
-    #### YOUR CODE HERE ####
-    # IPython.embed()
     table1 = env.GetBodies()[5]
     table2 = env.GetBodies()[6]
 
@@ -62,9 +59,6 @@ if __name__ == "__main__":
 
     table1.SetTransform(Target)
     table2.SetTransform(Target2)
-
-    
-    #### END OF YOUR CODE ###
 
 
     raw_input("Press enter to exit...")

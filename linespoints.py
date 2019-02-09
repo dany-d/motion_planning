@@ -43,9 +43,6 @@ if __name__ == "__main__":
     tuckarms(env,robot);
 
 
-    #### YOUR CODE HERE ####
-    # IPython.embed()
-
     spinner = None
     handles = []
     
@@ -66,7 +63,6 @@ if __name__ == "__main__":
 
     time.sleep(10)
 
-    #### END OF YOUR CODE ###
 
 
     raw_input("Press enter to exit...")

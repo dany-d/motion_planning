@@ -43,9 +43,6 @@ if __name__ == "__main__":
     tuckarms(env,robot);
 
 
-    #### YOUR CODE HERE ####
-
-
     Target1 = array([[1,0,0,-2.533],
                     [0,1,0,-1.347],
                     [0,0,1,-0.0441],
@@ -62,9 +59,7 @@ if __name__ == "__main__":
     robot.SetActiveDOFValues([-1.19275])
     col = env.CheckCollision(robot,Puma)
     print col
-    # IPython.embed()
 
-    #### END OF YOUR CODE ###
 
 
     raw_input("Press enter to exit...")
