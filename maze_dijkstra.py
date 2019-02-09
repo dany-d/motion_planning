@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import numpy
-import IPython
+# import IPython
 
 grid = [[0,0,1,0,0,0],
 		[0,0,1,0,0,0],
