@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import numpy
-# import IPython
+import Queue as Q
+import IPython
 
 grid = [[0,0,1,0,0,0],
 		[0,0,1,0,0,0],
@@ -15,64 +16,55 @@ goal = [4,5]
 
 delta = [[-1,0],
 		 [0,-1],
-		 [1,0],
+		 [1,0], 
 		 [0,1]]
 
 delta_name = ['^','<','v','>']
 
-cost = 1
-
-
-# IPython.embed()
+expand = [[-1 for idx in range(len(grid[0]))] for idy in range(len(grid))]
 
 def search():
-	# closed = [[0 for row in range(len(grid [0]))] for col in range(len(grid))
-	closed = [[0,0,0,0,0,0],
-			  [0,0,0,0,0,0],
-			  [0,0,0,0,0,0],
-			  [0,0,0,0,0,0],
-			  [0,0,0,0,0,0]]	 
+	closed = [[0 for idx in range(len(grid[0]))] for idy in range(len(grid))]
 
 	# print (closed)
 
 	closed[init[0]][init[1]] = 1
+	
 	# print (closed)
 	# x = init[0]
 	# # print (x)
 	# y = init[1]
 	# g = 0
 
-	x = 1
-	y = 5
+	open = Q.PriorityQueue()
+	x = 0
+	y = 0
 	g = 0
+	cost = 1
 
-	open = [[g,x,y]]
+	open.put([g,x,y])
 
 	found = False
 	resign = False
+	counter = 0
 
-	print ("initial open list:")
-	for i in range(len(open)):
-		print (open[i])
+	# 
 
 
 	while found is False and resign is False:
 
+		
 		print ("initial open list:")
-		for i in range(len(open)):
-			print (open[i])
-			print (closed)
+		print open.queue
 
 
 
-		if len(open) ==0:
+		if open.empty()== True:
 			resign = True
 			print ('fail')
 
 		else:
-			open.sort()
-			open.reverse()
-			next = open.pop()
+			next = open.get()
 
 			x = next[1]
 			y = next[2]
@@ -86,14 +78,46 @@ def search():
 				for i in range(len(delta)):
 					x2 = x + delta[i][0]
 					y2 = y + delta[i][1]
-					if x2 >=0 and x2 <5 and y2>=0 and y2 <6:
+					if x2 >=0 and x2 <len(grid) and y2>=0 and y2 <len(grid[0]):
 						if closed[x2][y2] == 0 and grid[x2][y2] == 0:
 							g2 = g + cost
-							open.append([g2,x2,y2])
+							open.put([g2,x2,y2])
 							print ('append list items')
 							print ([g2,x2,y2])
 							closed[x2][y2] = 1
+							expand[x2][y2] = i
 
+
+				
 search()
 
+for i in range(len(expand)):
+	print(expand[i])
+
+
+plan = [[' ' for idx in range(len(grid[0]))] for idy in range(len(grid))]
+x = goal[0]
+y = goal[1]
+
+# IPython.embed()
+
+while x !=init[0] and y!=init[1]:
+	x2 = x-delta[expand[x][y]][0]
+	y2 = y-delta[expand[x][y]][1]
+	plan[x2][y2] = delta_name[expand[x][y]]
+	x = x2
+	y = y2
+
+
+for i in range(len(plan)):
+	print plan[i]
+
+
+# def print_path():
+# 	x=0 
+# 	y=0 
+# 	g=0 
+
+# 	for i in range(len(delta)):
+# 		gx[i] = expand[x+delta[i][0]][y+delta[i][1]]
 
