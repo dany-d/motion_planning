@@ -1,2 +1,2 @@
-# Motion planning in OPENRave environmment
+# Motion planning in OPENRave environment
 
