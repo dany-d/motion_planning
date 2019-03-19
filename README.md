@@ -1,1 +1,2 @@
-# test
+# Motion planning in OPENRave environmment
+
