@@ -1,6 +1,6 @@
 # Motion planning in OPENRave environment
 
-![](A_star.gif)
+<p align="center"> "A_star.gif"
 
 
 
