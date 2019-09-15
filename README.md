@@ -1,6 +1,6 @@
 # Motion planning in OPENRave environment
 
-<p align="center"> "img src = A_star.gif"
+<p align="center"> <"img src = A_star.gif">
 
 
 
